@@ -7,7 +7,11 @@
 
 import Foundation
 
-struct DataResponse1: Decodable {
+struct AllCharacters: Decodable {
+    var results: [CharacterInfo]
+}
+
+struct CharacterInfo: Decodable {
     var id: Int
     var name: String
     var status: String
@@ -18,5 +22,5 @@ struct DataResponse1: Decodable {
 
 struct LocationInfo: Decodable {
     var name: String
-    //var url: String
+    var url: String
 }
