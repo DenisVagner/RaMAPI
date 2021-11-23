@@ -1,7 +1,6 @@
 import UIKit
 import Alamofire
 
-
 class ViewController: UIViewController {
     
     @IBOutlet weak var myTableView: UITableView!
@@ -41,24 +40,14 @@ class ViewController: UIViewController {
             case .success(let allcharacters):
                 self?.result = allcharacters
                 self?.myTableView.reloadData()
-                allcharacters.results.map({names in
-                    print(names.name)
-                } )
+                //                allcharacters.results.map({names in
+                //                    print(names.name)
+                //                } )
             case .failure(let error):
                 print(error)
             }
         }
-//        DispatchQueue.main.async {
-//            self.doRequest()
-//            var ress2: AllCharacters? = self.ress
-//            print("status", self.ress?.results.first?.status)
-//        }
-//        myTableView.reloadData()
-        //print("Didload: ",self.ress?.results.first?.name ?? "no name")
-        
-
     }
-
 }
 
 extension ViewController: UITableViewDataSource {
@@ -72,10 +61,12 @@ extension ViewController: UITableViewDataSource {
         cell.chatacterNameLabel.text = result?.results[indexPath.row].name
         cell.characterStatusLabel.text = result?.results[indexPath.row].status
         cell.characterLastSeenLocLabel.text = result?.results[indexPath.row].location.name
-        //ress?.results.first?.name ?? "dfgdg"
-        
+        if let urlString8 = self.result?.results[indexPath.row].image {
+            let urlImage = URL(string: urlString8)
+            let imageData = try? Data(contentsOf: urlImage!)
+            let image = UIImage(data: imageData!)
+            cell.characterImage.image = image
+        }
         return cell
     }
-    
-    
 }
