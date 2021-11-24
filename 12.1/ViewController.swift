@@ -34,6 +34,19 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        loadFromNetwork()
+
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let cell = sender as? UITableViewCell, let index = myTableView.indexPath(for: cell) {
+            if let vc = segue.destination as? CharacterInfoViewController, segue.identifier == "ShowInfo" {
+                print("index from prepare: ",index)
+                vc.idInfo = result?.results[index.row].id ?? 55
+            }
+        }
+    }
+    
+    func loadFromNetwork() {
         networkRequest.request(urlString: urlString3) { [weak self] (result) in
             switch result {
                 
@@ -49,6 +62,7 @@ class ViewController: UIViewController {
         }
     }
 }
+
 
 extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

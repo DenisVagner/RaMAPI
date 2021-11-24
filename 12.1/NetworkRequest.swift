@@ -13,8 +13,6 @@ class NetworkRequest {
                     return
                 }
                 guard let data = data else { return }
-                //            let someString = String(data: data, encoding: .utf8)
-                //            print(someString)
                 do {
                     let resultOut = try JSONDecoder().decode(AllCharacters.self, from: data)
                     completion(.success(resultOut))
@@ -23,7 +21,6 @@ class NetworkRequest {
                     completion(.failure(jsonError))
                 }
                 // print(String(data: data, encoding: .utf8) ?? "no data")
-                
             }
         }.resume()
     }

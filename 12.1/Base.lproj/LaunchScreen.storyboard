@@ -4,7 +4,6 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -17,28 +16,25 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchWall" translatesAutoresizingMaskIntoConstraints="NO" id="nb1-8U-lck">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" systemColor="labelColor"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="nb1-8U-lck" secondAttribute="bottom" id="3DE-Ft-glg"/>
-                            <constraint firstItem="nb1-8U-lck" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Gt9-YA-ZGn"/>
+                            <constraint firstAttribute="bottom" secondItem="nb1-8U-lck" secondAttribute="bottom" id="I6w-KD-ZpJ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="nb1-8U-lck" secondAttribute="trailing" id="cVm-RB-KPl"/>
+                            <constraint firstItem="nb1-8U-lck" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="nwT-Ul-WQl"/>
                             <constraint firstItem="nb1-8U-lck" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="oGg-Qm-ZH8"/>
                         </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52.173913043478265" y="375"/>
         </scene>
     </scenes>
     <resources>
         <image name="LaunchWall" width="1080" height="1920"/>
-        <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>
