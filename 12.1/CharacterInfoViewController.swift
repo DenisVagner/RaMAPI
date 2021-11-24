@@ -14,25 +14,26 @@ class CharacterInfoViewController: UIViewController {
     @IBOutlet weak var infoSpeciesLabel: UILabel!
     @IBOutlet weak var infoLastLocLabel: UILabel!
     @IBOutlet weak var infoFirstSeenLabel: UILabel!
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
-    }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear (animated)
-        DispatchQueue.main.async {
-            self.loadFromNetwork()
-        }
-        
-        print("name from will appear: ", result?.results[idInfo - 1].name ?? "no name")
-        
-    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("id from info: ", idInfo)
-        print("name from did load: ", result?.results[idInfo - 1].name ?? "no name")
+        loadFromNetwork()
+    }
+    
+    func loadFromNetwork() {
+        networkRequest.request(urlString: urlString3) { [weak self] (result) in
+            switch result {
+            case .success(let allcharacters):
+                self?.result = allcharacters
+                print("network request")
+                self?.setLabels()
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+    // Mark 
+    func setLabels() {
         infoNameLabel.text = result?.results[idInfo - 1].name
         infoLiveStatusLabel.text = result?.results[idInfo - 1].status
         infoSpeciesLabel.text = result?.results[idInfo - 1].species
@@ -45,31 +46,4 @@ class CharacterInfoViewController: UIViewController {
             infoImageView.image = image
         }
     }
-    
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(true)
-        print("name: ", result?.results[idInfo - 1].name ?? "no name")
-        
-    }
-    
-    
-    func loadFromNetwork() {
-        networkRequest.request(urlString: urlString3) { [weak self] (result) in
-            switch result {
-                
-            case .success(let allcharacters):
-                self?.result = allcharacters
-                print("network request")
-                self?.viewDidLoad()
-                //self?.loadView()
-                //self?.view.setNeedsLayout()
-                //self?.view.layoutIfNeeded()
-            case .failure(let error):
-                print(error)
-            }
-        }
-    }
-    
-    
 }

@@ -7,8 +7,6 @@ class ViewController: UIViewController {
     
     let networkRequest = NetworkRequest()
     var result: AllCharacters? = nil
-    // let urlString = "https://icodeschool.ru/json1.php"
-    //let urlString2 = "https://rickandmortyapi.com/api/character/149"
     let urlString3 = "https://rickandmortyapi.com/api/character"
     
     //    func doRequest(){
@@ -35,12 +33,11 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         loadFromNetwork()
-
+        
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let cell = sender as? UITableViewCell, let index = myTableView.indexPath(for: cell) {
             if let vc = segue.destination as? CharacterInfoViewController, segue.identifier == "ShowInfo" {
-                print("index from prepare: ",index)
                 vc.idInfo = result?.results[index.row].id ?? 55
             }
         }
@@ -53,9 +50,6 @@ class ViewController: UIViewController {
             case .success(let allcharacters):
                 self?.result = allcharacters
                 self?.myTableView.reloadData()
-                //                allcharacters.results.map({names in
-                //                    print(names.name)
-                //                } )
             case .failure(let error):
                 print(error)
             }
@@ -75,12 +69,21 @@ extension ViewController: UITableViewDataSource {
         cell.chatacterNameLabel.text = result?.results[indexPath.row].name
         cell.characterStatusLabel.text = result?.results[indexPath.row].status
         cell.characterLastSeenLocLabel.text = result?.results[indexPath.row].location.name
+        
         if let urlString8 = self.result?.results[indexPath.row].image {
             let urlImage = URL(string: urlString8)
-            let imageData = try? Data(contentsOf: urlImage!)
-            let image = UIImage(data: imageData!)
-            cell.characterImage.image = image
+            let queue = DispatchQueue.global(qos: .userInteractive)
+            queue.async {
+                if let imageData = try? Data(contentsOf: urlImage!) {
+                    DispatchQueue.main.async {
+                        let image = UIImage(data: imageData)
+                        cell.characterImage.image = image
+                    }
+                }
+                
+            }
         }
+        
         return cell
     }
 }
