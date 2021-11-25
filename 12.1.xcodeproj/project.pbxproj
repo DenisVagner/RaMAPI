@@ -18,7 +18,6 @@
 		415A26D2274412F300B007F2 /* _2_1UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415A26D1274412F300B007F2 /* _2_1UITests.swift */; };
 		415A26D4274412F300B007F2 /* _2_1UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415A26D3274412F300B007F2 /* _2_1UITestsLaunchTests.swift */; };
 		41AC854E274A9D01006D132F /* CharacterInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AC854D274A9D01006D132F /* CharacterInfoTableViewCell.swift */; };
-		41AC8550274C1AAC006D132F /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AC854F274C1AAC006D132F /* NetworkRequest.swift */; };
 		41AC8552274D509D006D132F /* CharacterInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AC8551274D509D006D132F /* CharacterInfoViewController.swift */; };
 		41CA8F4C274FE84D00ACC5C3 /* NetworkRequestAF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CA8F4B274FE84D00ACC5C3 /* NetworkRequestAF.swift */; };
 		41D90DA1274565DA005EB017 /* DataResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D90DA0274565DA005EB017 /* DataResponse.swift */; };
@@ -58,7 +57,6 @@
 		415A26D3274412F300B007F2 /* _2_1UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _2_1UITestsLaunchTests.swift; sourceTree = "<group>"; };
 		415A26E12744170B00B007F2 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		41AC854D274A9D01006D132F /* CharacterInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterInfoTableViewCell.swift; sourceTree = "<group>"; };
-		41AC854F274C1AAC006D132F /* NetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
 		41AC8551274D509D006D132F /* CharacterInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterInfoViewController.swift; sourceTree = "<group>"; };
 		41CA8F4B274FE84D00ACC5C3 /* NetworkRequestAF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequestAF.swift; sourceTree = "<group>"; };
 		41D90DA0274565DA005EB017 /* DataResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataResponse.swift; sourceTree = "<group>"; };
@@ -120,7 +118,6 @@
 				415A26B0274412EF00B007F2 /* AppDelegate.swift */,
 				415A26B2274412EF00B007F2 /* SceneDelegate.swift */,
 				415A26B4274412EF00B007F2 /* ViewController.swift */,
-				41AC854F274C1AAC006D132F /* NetworkRequest.swift */,
 				41CA8F4B274FE84D00ACC5C3 /* NetworkRequestAF.swift */,
 				415A26B6274412EF00B007F2 /* Main.storyboard */,
 				41AC8551274D509D006D132F /* CharacterInfoViewController.swift */,
@@ -349,7 +346,6 @@
 				41CA8F4C274FE84D00ACC5C3 /* NetworkRequestAF.swift in Sources */,
 				41D90DA1274565DA005EB017 /* DataResponse.swift in Sources */,
 				41AC854E274A9D01006D132F /* CharacterInfoTableViewCell.swift in Sources */,
-				41AC8550274C1AAC006D132F /* NetworkRequest.swift in Sources */,
 				415A26B3274412EF00B007F2 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

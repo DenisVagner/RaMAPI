@@ -5,28 +5,26 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var myTableView: UITableView!
     
-    //let networkRequest = NetworkRequest()
     var result: AllCharacters? = nil
     let urlString = "https://rickandmortyapi.com/api/character"
     
     let networkRequestAF = NetworkRequestAF()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         loadFromNetworkAF()
-        //loadFromNetwork()
         
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let cell = sender as? UITableViewCell, let index = myTableView.indexPath(for: cell) {
             if let vc = segue.destination as? CharacterInfoViewController, segue.identifier == "ShowInfo" {
-                vc.idInfo = result?.results[index.row].id ?? 55
+                vc.idInfo = (result?.results[index.row].id ?? 0)
             }
         }
     }
     
     func loadFromNetworkAF() {
-        networkRequestAF.requestAF(urlString: urlString) { [weak self] result in
+        networkRequestAF.requestAll(urlString: urlString) { [weak self] result in
             switch result {
                 
             case .success(let allcharacters):
@@ -37,19 +35,6 @@ class ViewController: UIViewController {
             }
         }
     }
-    
-//    func loadFromNetwork() {
-//        networkRequest.doRequest(urlString: urlString3) { [weak self] (result) in
-//            switch result {
-//
-//            case .success(let allcharacters):
-//                self?.result = allcharacters
-//                self?.myTableView.reloadData()
-//            case .failure(let error):
-//                print(error)
-//            }
-//        }
-//    }
 }
 
 
@@ -79,7 +64,6 @@ extension ViewController: UITableViewDataSource {
                 
             }
         }
-        
         return cell
     }
 }
