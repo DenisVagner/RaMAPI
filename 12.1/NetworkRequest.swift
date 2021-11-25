@@ -3,10 +3,9 @@ import Foundation
 
 class NetworkRequest {
     
-    func request (urlString: String, completion: @escaping (Result<AllCharacters, Error>) -> Void) {
+    func doRequest (urlString: String, completion: @escaping (Result<AllCharacters, Error>) -> Void) {
         guard let url = URL(string: urlString) else { return }
         URLSession.shared.dataTask(with: url) { (data, response, error)  in
-            //DispatchQueue.main.async {
                 if let error = error {
                     print("Some error: \(error)")
                     completion(.failure(error))
@@ -23,8 +22,6 @@ class NetworkRequest {
                     print("ERROR!!! cant decode: ", jsonError)
                     completion(.failure(jsonError))
                 }
-                // print(String(data: data, encoding: .utf8) ?? "no data")
-           // }
         }.resume()
     }
     

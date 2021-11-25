@@ -20,6 +20,7 @@
 		41AC854E274A9D01006D132F /* CharacterInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AC854D274A9D01006D132F /* CharacterInfoTableViewCell.swift */; };
 		41AC8550274C1AAC006D132F /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AC854F274C1AAC006D132F /* NetworkRequest.swift */; };
 		41AC8552274D509D006D132F /* CharacterInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41AC8551274D509D006D132F /* CharacterInfoViewController.swift */; };
+		41CA8F4C274FE84D00ACC5C3 /* NetworkRequestAF.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41CA8F4B274FE84D00ACC5C3 /* NetworkRequestAF.swift */; };
 		41D90DA1274565DA005EB017 /* DataResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41D90DA0274565DA005EB017 /* DataResponse.swift */; };
 /* End PBXBuildFile section */
 
@@ -59,6 +60,7 @@
 		41AC854D274A9D01006D132F /* CharacterInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterInfoTableViewCell.swift; sourceTree = "<group>"; };
 		41AC854F274C1AAC006D132F /* NetworkRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
 		41AC8551274D509D006D132F /* CharacterInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterInfoViewController.swift; sourceTree = "<group>"; };
+		41CA8F4B274FE84D00ACC5C3 /* NetworkRequestAF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequestAF.swift; sourceTree = "<group>"; };
 		41D90DA0274565DA005EB017 /* DataResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataResponse.swift; sourceTree = "<group>"; };
 		4E2B07CDBF3062C7F62E5D14 /* Pods_12_1.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_12_1.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0D0782CBE4BC07C0C93683E /* Pods-12.1.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-12.1.debug.xcconfig"; path = "Target Support Files/Pods-12.1/Pods-12.1.debug.xcconfig"; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 				415A26B2274412EF00B007F2 /* SceneDelegate.swift */,
 				415A26B4274412EF00B007F2 /* ViewController.swift */,
 				41AC854F274C1AAC006D132F /* NetworkRequest.swift */,
+				41CA8F4B274FE84D00ACC5C3 /* NetworkRequestAF.swift */,
 				415A26B6274412EF00B007F2 /* Main.storyboard */,
 				41AC8551274D509D006D132F /* CharacterInfoViewController.swift */,
 				41AC854D274A9D01006D132F /* CharacterInfoTableViewCell.swift */,
@@ -343,6 +346,7 @@
 				41AC8552274D509D006D132F /* CharacterInfoViewController.swift in Sources */,
 				415A26B5274412EF00B007F2 /* ViewController.swift in Sources */,
 				415A26B1274412EF00B007F2 /* AppDelegate.swift in Sources */,
+				41CA8F4C274FE84D00ACC5C3 /* NetworkRequestAF.swift in Sources */,
 				41D90DA1274565DA005EB017 /* DataResponse.swift in Sources */,
 				41AC854E274A9D01006D132F /* CharacterInfoTableViewCell.swift in Sources */,
 				41AC8550274C1AAC006D132F /* NetworkRequest.swift in Sources */,

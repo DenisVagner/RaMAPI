@@ -1,8 +1,9 @@
 import UIKit
+import Alamofire
 
 class CharacterInfoViewController: UIViewController {
     var idInfo = 0
-    let networkRequest = NetworkRequest()
+    let networkRequest = NetworkRequestAF()
     var result: AllCharacters? = nil
     // let urlString = "https://icodeschool.ru/json1.php"
     //let urlString2 = "https://rickandmortyapi.com/api/character/149"
@@ -17,15 +18,14 @@ class CharacterInfoViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadFromNetwork()
+        loadFromNetworkAF()
     }
     
-    func loadFromNetwork() {
-        networkRequest.request(urlString: urlString3) { [weak self] (result) in
+    func loadFromNetworkAF() {
+        networkRequest.requestAF(urlString: urlString3) { [weak self] (result) in
             switch result {
             case .success(let allcharacters):
                 self?.result = allcharacters
-                print("network request")
                 self?.setLabels()
             case .failure(let error):
                 print(error)

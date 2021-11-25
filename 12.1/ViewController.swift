@@ -5,34 +5,16 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var myTableView: UITableView!
     
-    let networkRequest = NetworkRequest()
+    //let networkRequest = NetworkRequest()
     var result: AllCharacters? = nil
-    let urlString3 = "https://rickandmortyapi.com/api/character"
+    let urlString = "https://rickandmortyapi.com/api/character"
     
-    //    func doRequest(){
-    //        AF.request(urlString3).responseJSON { response in
-    //            DispatchQueue.main.async {
-    //                guard let data = response.data else { return }
-    //                do {
-    //                    let res: AllCharacters = try JSONDecoder().decode(AllCharacters.self, from: data)
-    //                    //return res?
-    //                    self.ress = res
-    //                    print(res.results.count)
-    //                    print(res.results.first?.name ?? "" )
-    //                    var test = self.ress?.results[0].name
-    //                    print(test ?? "nress nil")
-    //                } catch {
-    //                    print("ERROR!!!", error)
-    //                }
-    //
-    //            }
-    //        }
-    //    }
-    
+    let networkRequestAF = NetworkRequestAF()
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        loadFromNetwork()
+        loadFromNetworkAF()
+        //loadFromNetwork()
         
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -43,8 +25,8 @@ class ViewController: UIViewController {
         }
     }
     
-    func loadFromNetwork() {
-        networkRequest.request(urlString: urlString3) { [weak self] (result) in
+    func loadFromNetworkAF() {
+        networkRequestAF.requestAF(urlString: urlString) { [weak self] result in
             switch result {
                 
             case .success(let allcharacters):
@@ -55,6 +37,19 @@ class ViewController: UIViewController {
             }
         }
     }
+    
+//    func loadFromNetwork() {
+//        networkRequest.doRequest(urlString: urlString3) { [weak self] (result) in
+//            switch result {
+//
+//            case .success(let allcharacters):
+//                self?.result = allcharacters
+//                self?.myTableView.reloadData()
+//            case .failure(let error):
+//                print(error)
+//            }
+//        }
+//    }
 }
 
 
@@ -78,6 +73,7 @@ extension ViewController: UITableViewDataSource {
                     DispatchQueue.main.async {
                         let image = UIImage(data: imageData)
                         cell.characterImage.image = image
+                        print("Image \(indexPath.row + 1) updated")
                     }
                 }
                 
