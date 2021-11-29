@@ -1,10 +1,17 @@
 import UIKit
-import Alamofire
+
+// + вынести url адрес в переменную
+// + удалить неиспользуемый модуль Alamofire
 
 class CharacterInfoViewController: UIViewController {
     var idInfo = 0
     let networkRequest = NetworkRequestAF()
     var resultOne: CharacterInfo? = nil
+    var urlString: String {
+        get {
+            return "https://rickandmortyapi.com/api/character/\(idInfo)"
+        }
+    }
     
     @IBOutlet weak var infoImageView: UIImageView!
     @IBOutlet weak var infoNameLabel: UILabel!
@@ -19,7 +26,7 @@ class CharacterInfoViewController: UIViewController {
     }
     
     func loadFromNetworkAFOne() {
-        networkRequest.requestOne(urlString: "https://rickandmortyapi.com/api/character/\(idInfo)") { [weak self] (result) in
+        networkRequest.requestOne(urlString: urlString) { [weak self] (result) in
             switch result {
             case .success(let onecharacter):
                 self?.resultOne = onecharacter
