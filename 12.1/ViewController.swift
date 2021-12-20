@@ -1,8 +1,6 @@
 import UIKit
 import Alamofire
 
-// анимированно убрать выделение нажатой ячейки
-
 class ViewController: UIViewController {
     
     @IBOutlet weak var myTableView: UITableView!
@@ -19,11 +17,9 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         DispatchQueue.global(qos: .utility).async {
             self.loadFromNetworkAF(url: self.urlString)
         }
-        
     }
     
     // Передача ID нажатого персонажа на следующий экран
@@ -45,34 +41,12 @@ class ViewController: UIViewController {
                 } else {
                     self?.result?.results += allcharacters.results
                 }
-                
                 self?.myTableView.reloadData()
             case .failure(let error):
                 print("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!", error)
-                //self?.alertPresent()
             }
         }
     }
-    
-    //    func alertPresent() {
-    //        let ac = UIAlertController(title: "Error", message: "No inernet", preferredStyle: .alert)
-    //        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
-    //        ac.addAction(cancelAction)
-    //        present(ac, animated: true, completion: nil)
-    //    }
-    
-    //    func loadFromNetworkNextPage(url: String) {
-    //        networkRequestAF.requestAll(urlString: urlString) { [weak self] result in
-    //            switch result {
-    //
-    //            case .success(let allcharacters):
-    //                self?.nextPageData = allcharacters
-    //                self?.myTableView.reloadData()
-    //            case .failure(let error):
-    //                print(error)
-    //            }
-    //        }
-    //    }
 }
 
 // экстеншены для работы с таблицей
@@ -87,6 +61,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! CharacterInfoTableViewCell
         
+        // заполнение лейблов
         cell.chatacterNameLabel.text = result?.results[indexPath.row].name
         cell.characterStatusLabel.text = result?.results[indexPath.row].status
         cell.characterLastSeenLocLabel.text = result?.results[indexPath.row].location.name
@@ -98,6 +73,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
                 self.loadFromNetworkAF(url: self.urlString)
             }
         }
+        
         // вывод картинки персонажа
         if let urlStringImage = self.result?.results[indexPath.row].image {
             cell.activityIndicatorInCell.startAnimating()

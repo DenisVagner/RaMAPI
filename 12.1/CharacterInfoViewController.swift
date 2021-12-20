@@ -39,12 +39,10 @@ class CharacterInfoViewController: UIViewController {
     
     // заполнение полей о персонаже
     func setLabels() {
-        
         infoNameLabel.text = resultOne?.name
         infoLiveStatusLabel.text = resultOne?.status
         infoSpeciesLabel.text = resultOne?.species
         infoLastLocLabel.text = resultOne?.location.name
-        
         
         if let urlString = self.resultOne?.image {
             let urlImage = URL(string: urlString)
