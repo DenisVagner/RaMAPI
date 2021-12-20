@@ -1,7 +1,15 @@
 import Foundation
 
 struct AllCharacters: Decodable {
+    var info: totalInfo
     var results: [CharacterInfo]
+}
+
+struct totalInfo: Decodable {
+    var count: Int
+    var pages: Int
+    var next: String?
+    var prev: String?
 }
 
 struct CharacterInfo: Decodable {

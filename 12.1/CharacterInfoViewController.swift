@@ -1,8 +1,5 @@
 import UIKit
 
-// + вынести url адрес в переменную
-// + удалить неиспользуемый модуль Alamofire
-
 class CharacterInfoViewController: UIViewController {
     var idInfo = 0
     let networkRequest = NetworkRequestAF()
@@ -19,13 +16,16 @@ class CharacterInfoViewController: UIViewController {
     @IBOutlet weak var infoSpeciesLabel: UILabel!
     @IBOutlet weak var infoLastLocLabel: UILabel!
     @IBOutlet weak var infoFirstSeenLabel: UILabel!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         loadFromNetworkAFOne()
     }
     
+    // запрос данных одного нажатого персонаже
     func loadFromNetworkAFOne() {
+        activityIndicator.isHidden = false
         networkRequest.requestOne(urlString: urlString) { [weak self] (result) in
             switch result {
             case .success(let onecharacter):
@@ -37,17 +37,22 @@ class CharacterInfoViewController: UIViewController {
         }
     }
     
+    // заполнение полей о персонаже
     func setLabels() {
+        
         infoNameLabel.text = resultOne?.name
         infoLiveStatusLabel.text = resultOne?.status
         infoSpeciesLabel.text = resultOne?.species
         infoLastLocLabel.text = resultOne?.location.name
         
-        if let urlString8 = self.resultOne?.image {
-            let urlImage = URL(string: urlString8)
-            let imageData = try? Data(contentsOf: urlImage!)
-            let image = UIImage(data: imageData!)
+        
+        if let urlString = self.resultOne?.image {
+            let urlImage = URL(string: urlString)
+            guard let imageData = try? Data(contentsOf: urlImage!) else { return }
+            let image = UIImage(data: imageData)
+            
             infoImageView.image = image
+            activityIndicator.isHidden = true
         }
     }
 }

@@ -6,6 +6,7 @@ class CharacterInfoTableViewCell: UITableViewCell {
     @IBOutlet weak var chatacterNameLabel: UILabel!
     @IBOutlet weak var characterStatusLabel: UILabel!
     @IBOutlet weak var characterLastSeenLocLabel: UILabel!
+    @IBOutlet weak var activityIndicatorInCell: UIActivityIndicatorView!
     
     
     override func awakeFromNib() {
